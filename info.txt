@@ -1,0 +1,5 @@
+nombre: javier Andres Quinayas Zuñiga
+edad: 19 
+colegio: FUNBAC
+telefono: 3206459064
+correo: javierquinayas80@gmail.com
