@@ -15,8 +15,8 @@ class coche(Vehiculo):
 
 
     def info_vehiculo(self):
-        return super().info_vehiculo()
+        super().info_vehiculo()
         print(f"numero de puertas: {self.num_puertas}")
 
-mi_coche= coche("Auidi","R8",2)
+mi_coche= coche("Auidi","R8", 2 )
 mi_coche.info_vehiculo()
