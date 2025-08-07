@@ -1,16 +1,16 @@
 #Taller  de programacion 10
 
-class libro:
+class Libro:
     def __init__(self,titulo,autor,año):
         self.titulo=titulo
         self.autor=autor
         self.año=año
+        
+    def mostrar_info(self):
+        print(f"Del año:{self.año}")
 
-def mostrar_info(self):
-    print(f"Del año:{self.año}")
+mi_libro=Libro ("Orgullo y prejuicio","Jane Austen", 1813)
 
-mi_libro=libro ("Orgullo y prejuicio","jane austen", 1813)
-
-print(f"Mio libro es {mi_libro.titulo} de {mi_libro.autor}")
+print(f"Mi libro es {mi_libro.titulo} de {mi_libro.autor}")
 
 mi_libro.mostrar_info()
