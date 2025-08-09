@@ -1,31 +1,32 @@
 import random
 
 class Carta:
-    def __init__(self,palo,valor,nombre):
-        self.palo=palo
-        self.valor=valor
+    def __init__(self, palo, valor, nombre):
+        self.palo = palo
+        self.valor = valor
         self.nombre = nombre
 
-def __str__(self):
-    return f"{self.nombre_valor} de {self.palo}"
+    def __str__(self):
+        return f"{self.nombre} de {self.palo}"
+
 
 class Mazo:
     def __init__(self):
         self.cartas = []
-        palos=["Corazones","Diamante","Treboles","picas"]
-        valores_numericos= list(range(2, 11))
-        nombre_valores= [str(v) for v in valores_numericos]+["J","Q","k","As"]
-        valores_mapeado= {
-            "J":11 , "Q":12 , "K": 13 , "As":14 
+        palos = ["Corazones", "Diamantes", "Treboles", "Picas"]
+        valores_numericos = list(range(2, 11))
+        nombre_valores = [str(v) for v in valores_numericos] + ["J", "Q", "K", "As"]
+        valores_mapeado = {
+            "J": 11, "Q": 12, "K": 13, "As": 14
         }
 
         for palo in palos:
-            for i, nombre_valor in enumerate(nombre_valores):
-                if nombre_valor.isdigit():
-                    valor = int(nombre_valor)
+            for nombre in nombre_valores:
+                if nombre.isdigit():
+                    valor = int(nombre)
                 else:
-                    valor = valores_mapeado.get(nombre_valor)
-                self.cartas.append(Carta(palo, valor, nombre_valor))
+                    valor = valores_mapeado.get(nombre)
+                self.cartas.append(Carta(palo, valor, nombre))
 
     def baraja(self):
         random.shuffle(self.cartas)
@@ -34,23 +35,24 @@ class Mazo:
         if not self.cartas:
             return None
         return self.cartas.pop()
-    
+
+
 class Jugador:
     def __init__(self, nombre):
-        self.nombre=nombre
-        self.mano=[]
-        self.Puntaje= 0
+        self.nombre = nombre
+        self.mano = []
+        self.Puntaje = 0
 
     def agregar_carta(self, carta):
         self.mano.append(carta)
 
     def mostrar_mano(self):
-       if not self.mano:
-           print(f"{self.nombre} no tiene cartas en la mano.")
-           return
-       print(f"Mano de {self.nombre}:")
-       for carta in self.mano:
-           print(f" - {carta}")
+        if not self.mano:
+            print(f"{self.nombre} no tiene cartas en la mano.")
+            return
+        print(f"Mano de {self.nombre}:")
+        for carta in self.mano:
+            print(f" - {carta}")
 
     def jugar_carta(self):
         if self.mano:
@@ -58,21 +60,21 @@ class Jugador:
         return None
 
     def sumar_puntos(self):
-        self.Puntaje +=1
+        self.Puntaje += 1
 
 
-def jugar_ronda(jugador1,jugador2,mazo):
+def jugar_ronda(jugador1, jugador2, mazo):
     print("\n--- ¡Nueva Ronda! ---")
-    jugador1.mano= []
-    jugador2.mano= []
+    jugador1.mano = []
+    jugador2.mano = []
 
-    carta1= mazo.repartir_cartas()
-    carta2= mazo.repartir_cartas()
+    carta1 = mazo.repartir_cartas()
+    carta2 = mazo.repartir_cartas()
 
     if not carta1 or not carta2:
-        print("xx ¡No hay suficientes cartas en el mazo para jugar otra ronda¡ xx")
+        print("xx ¡No hay suficientes cartas en el mazo para jugar otra ronda! xx")
         return False
-    
+
     jugador1.agregar_carta(carta1)
     jugador2.agregar_carta(carta2)
 
@@ -80,45 +82,49 @@ def jugar_ronda(jugador1,jugador2,mazo):
     print(f"{jugador2.nombre} jugó: {carta2}")
 
     if carta1.valor > carta2.valor:
-        print(f"¡{jugador1.nombre} Gana la ronda!")
+        print(f"¡{jugador1.nombre} gana la ronda!")
+        jugador1.sumar_puntos()
     elif carta2.valor > carta1.valor:
-        print(f"¡{jugador2.nombre} Gana la ronda!")
+        print(f"¡{jugador2.nombre} gana la ronda!")
+        jugador2.sumar_puntos()
     else:
-        print("¡es un Empate!")
+        print("¡Es un empate!")
 
-    print(f"Puntuacion actual: {jugador1.nombre}: {jugador1.puntuacion} - {jugador2.nombre}: {jugador2.puntuacion}")
+    print(f"Puntaje actual: {jugador1.nombre}: {jugador1.Puntaje} - {jugador2.nombre}: {jugador2.Puntaje}")
     return True
 
-def iniciar_juego():
-    print("¡Bienvenido al juego de mayor o menor con POO")
 
-    nombre1=input("ingresa tu nombre de jugador 1:")   
-    nombre2=input("ingresa tu nombre de jugador 2:")
-    jugador1= Jugador(nombre1)
-    jugador2= Jugador(nombre2)
+def iniciar_juego():
+    print("¡Bienvenido al juego de mayor o menor con POO!")
+
+    nombre1 = input("Ingresa tu nombre de jugador 1: ")
+    nombre2 = input("Ingresa tu nombre de jugador 2: ")
+    jugador1 = Jugador(nombre1)
+    jugador2 = Jugador(nombre2)
 
     mazo = Mazo()
     mazo.baraja()
-    print("Mazo creado y barajeado.")
+    print("Mazo creado y barajado.")
 
-    num_rondas= int(input("¿cuantas rondas quieren jugar?"))
-    rondas_jugadas= 0
+    num_rondas = int(input("¿Cuántas rondas quieren jugar? "))
+    rondas_jugadas = 0
 
     while rondas_jugadas < num_rondas:
         if not jugar_ronda(jugador1, jugador2, mazo):
             break
-        rondas_jugadas +=1
+        rondas_jugadas += 1
 
-    print("\n-- ¡juego terminado! --")
-    print(f"Puntacion Final")
-    print(f"{jugador1.nombre}: {jugador1.Puntaje} Puntos")
-    print(f"{jugador2.nombre}: {jugador2.Puntaje} Puntos")
+    print("\n-- ¡Juego terminado! --")
+    print("Puntuación Final:")
+    print(f"{jugador1.nombre}: {jugador1.Puntaje} puntos")
+    print(f"{jugador2.nombre}: {jugador2.Puntaje} puntos")
 
     if jugador1.Puntaje > jugador2.Puntaje:
-            print(f"¡El Ganador es {jugador1.nombre}!") 
+        print(f"¡El ganador es {jugador1.nombre}!")
     elif jugador2.Puntaje > jugador1.Puntaje:
-            print(f"El Ganador es {jugador2.nombre}!")
+        print(f"¡El ganador es {jugador2.nombre}!")
     else:
-            print("****** ¡El juego termino en un empate! ******")
+        print("****** ¡El juego terminó en empate! ******")
+
 
 iniciar_juego()
