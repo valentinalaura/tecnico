@@ -64,7 +64,7 @@ class Jugador:
 
 
 def jugar_ronda(jugador1, jugador2, mazo):
-    print("\n--- ¡Nueva Ronda! ---")
+    print("\n---+ ¡Nueva Ronda! +---")
     jugador1.mano = []
     jugador2.mano = []
 
@@ -72,23 +72,23 @@ def jugar_ronda(jugador1, jugador2, mazo):
     carta2 = mazo.repartir_cartas()
 
     if not carta1 or not carta2:
-        print("xx ¡No hay suficientes cartas en el mazo para jugar otra ronda! xx")
+        print("xxxX ¡No hay suficientes cartas en el mazo para jugar otra ronda! Xxxx")
         return False
 
     jugador1.agregar_carta(carta1)
     jugador2.agregar_carta(carta2)
 
-    print(f"{jugador1.nombre} jugó: {carta1}")
-    print(f"{jugador2.nombre} jugó: {carta2}")
+    print(f"{jugador1.nombre} A jugado : {carta1}")
+    print(f"{jugador2.nombre} A jugado : {carta2}")
 
     if carta1.valor > carta2.valor:
-        print(f"¡{jugador1.nombre} gana la ronda!")
+        print(f"¡..{jugador1.nombre}..  gana la ronda!")
         jugador1.sumar_puntos()
     elif carta2.valor > carta1.valor:
-        print(f"¡{jugador2.nombre} gana la ronda!")
+        print(f"¡..{jugador2.nombre}..  gana la ronda!")
         jugador2.sumar_puntos()
     else:
-        print("¡Es un empate!")
+        print(".*.*¡Es un empate!*.*.")
 
     print(f"Puntaje actual: {jugador1.nombre}: {jugador1.Puntaje} - {jugador2.nombre}: {jugador2.Puntaje}")
     return True
@@ -114,15 +114,15 @@ def iniciar_juego():
             break
         rondas_jugadas += 1
 
-    print("\n-- ¡Juego terminado! --")
+    print("\n--x ¡Juego terminado! x--")
     print("Puntuación Final:")
     print(f"{jugador1.nombre}: {jugador1.Puntaje} puntos")
     print(f"{jugador2.nombre}: {jugador2.Puntaje} puntos")
 
     if jugador1.Puntaje > jugador2.Puntaje:
-        print(f"¡El ganador es {jugador1.nombre}!")
+        print(f"**.*¡El ganador es {jugador1.nombre}!*.**")
     elif jugador2.Puntaje > jugador1.Puntaje:
-        print(f"¡El ganador es {jugador2.nombre}!")
+        print(f"**.*¡El ganador es {jugador2.nombre}!*.**")
     else:
         print("****** ¡El juego terminó en empate! ******")
 
