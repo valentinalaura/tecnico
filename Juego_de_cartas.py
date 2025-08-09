@@ -67,7 +67,7 @@ def jugar_ronda(jugador1,jugador2,mazo):
     jugador2.mano= []
 
     carta1= mazo.repartir_cartas()
-    carta2= mazo.repartir_carta()
+    carta2= mazo.repartir_cartas()
 
     if not carta1 or not carta2:
         print("xx ¡No hay suficientes cartas en el mazo para jugar otra ronda¡ xx")
