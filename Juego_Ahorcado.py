@@ -19,7 +19,7 @@ def mostrar_palabra(self):
 def adivinar_letras(self, letras):
     if letras in self.letras_adivinadas or letras in self.letras_falladas:
         print(" +++--Ya Adivinaste o Intentaste esa Letra.--+++")
-        return True
+        return False
     
     if letras in self.palabra:
         self.letras_adivinadas.add(letras)
@@ -58,7 +58,7 @@ class JuegoAhorcado:
             print(f"\n x--¡Se te acabaron los intentos!--x  la palabra era: {self.palabra_secreta.palabra.upper()}")
         print("** Gracias por jugar **")
 
-if __name__ == " __main__ ":
+if __name__ == "__main__":
     juego = JuegoAhorcado()
     juego.jugar()
 
