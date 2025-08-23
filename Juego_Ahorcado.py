@@ -53,7 +53,7 @@ class JuegoAhorcado:
                 print(" xx--¡Incorecto!--xx ")
 
         if self.palabra_secreta.es_ganador():
-            print(f"\n *--¡Felicidades!--*  Adivinaste la palabra: {self.palabra_secreta.palabra.unpper()}")
+            print(f"\n *--¡Felicidades!--*  Adivinaste la palabra: {self.palabra_secreta.palabra.upper()}")
         else:
             print(f"\n x--¡Se te acabaron los intentos!--x  la palabra era: {self.palabra_secreta.palabra.upper()}")
         print("** Gracias por jugar **")
