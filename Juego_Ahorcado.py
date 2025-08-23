@@ -7,29 +7,29 @@ class PalabraSecreta:
         self.letras_adivinadas = set()
         self.letras_falladas =set()
 
-def mostrar_palabra(self):
-    palabra_oculta = ""
-    for letras in self.palabras:
-        if letras in self.letras_adivinadas:
-            palabra_oculta += " "
+    def mostrar_palabra(self):
+        palabra_oculta = " "
+        for letras in self.palabra:
+            if letras in self.letras_adivinadas:
+                palabra_oculta += " "
+            else:
+                palabra_oculta += "_ "
+        return palabra_oculta.strip()
+
+    def adivinar_letras(self, letras):
+        if letras in self.letras_adivinadas or letras in self.letras_falladas:
+            print(" +++--Ya Adivinaste o Intentaste esa Letra.--+++")
+            return False
+        
+        if letras in self.palabra:
+            self.letras_adivinadas.add(letras)
+            return True
         else:
-            palbra_oculta += "_ "
-    return palabra_oculta.strip()
+            self.letras_falladas.add(letras)
+            return False
 
-def adivinar_letras(self, letras):
-    if letras in self.letras_adivinadas or letras in self.letras_falladas:
-        print(" +++--Ya Adivinaste o Intentaste esa Letra.--+++")
-        return False
-    
-    if letras in self.palabra:
-        self.letras_adivinadas.add(letras)
-        return True
-    else:
-        self.letras_falladas.add(letras)
-        return False
-
-def es_gandor(self):
-    return all(letras in self.letras_adivinadas for letras in self.palabra)
+    def es_ganador(self):
+        return all(letras in self.letras_adivinadas for letras in self.palabra)
 
 class JuegoAhorcado:
     def __init__(self, intentos_maximos=6):
@@ -48,7 +48,7 @@ class JuegoAhorcado:
                 print("-¿¿--Por favor, Ingresa una sola Palabra valida.--??- ")
                 continue
 
-            if not self.palbra_secreta.adivinar_letra(letras):
+            if not self.palabra_secreta.adivinar_letras(letras):
                 self.intentos_restantes -= 1
                 print(" xx--¡Incorecto!--xx ")
 
