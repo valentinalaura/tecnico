@@ -75,7 +75,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             text-align: center;
-            transition: tranform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         article.product-card:hover {
@@ -95,7 +95,7 @@
 
         .prduct-description {
             font-size: 0.85em;
-            color: var(--color-fondo);
+            color: var(#555);
             margin: 5px 0 10px;
             height: 50px;
             overflow: hidden;
@@ -116,28 +116,46 @@
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            transition: backgroup-color;
+            transition: backgroud-color 0.3s;
         }
 
         .btn-detalle:hover {
             background-color: #001aff;
         }
+
         .image-container {
             width: 100%;
             height: 300px;
             overflow: hidden;
         }
+
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s;
         }
+
         .image-container:hover img {
             transform: scale(1.1);
         }
+
         .card-content {
             padding: 10px 15px;
+        }
+
+        .btb-detalles{
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+        .btb-detalles:hover{
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        article.product-card {
+            transition:transforme 0.3s ease, box-shadow 0.3s ease;
+        }
+        article.product-card:hover {
+            transform: scale(1.05);
         }
 
     </style>
@@ -151,7 +169,7 @@
 
     <div class="contenedor-principal">
         <main>
-            <h1>Productos Populares</h1>
+            <h2>Productos Populares</h2>
             <div class="product-grid">
 
                 <article class="product-card">
@@ -161,7 +179,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="product-title">Camara Canon Eo5/R10</h3>
-                        <p class="produc-description">
+                        <p class="product-description">
                             Camara Digital Canon de alto enfoque,10 Graduaciones de lente
                         </p>
                         <div class="product-price">$580.000</div>
@@ -176,7 +194,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="product-title">Monitor LG</h3>
-                        <p class="produc-description">
+                        <p class="product-description">
                             Monitor LG 27MR400 Full HD 140hz 5mg
                         </p>
                         <div class="product-price">$990.999</div>
@@ -192,7 +210,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="product-title">Mouse Ergonomico office</h3>
-                        <p class="produc-description">
+                        <p class="product-description">
                             Lenovo-Legion-M300-RGB-Gaming-Mouse
                         </p>
                         <div class="product-price">$80.000</div>
@@ -207,7 +225,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="product-title">Teclado Led</h3>
-                        <p class="produc-description">
+                        <p class="product-description">
                             Teclado led RGB Redragon
                         </p>
                         <div class="product-price">$120.000</div>
@@ -222,7 +240,7 @@
                     </div>
                     <div class="card-content">
                         <h3 class="product-title">Diadema RGB</h3>
-                        <p class="produc-description">
+                        <p class="product-description">
                             Diadema Gamer Logitech G733, Rgb Inalámbrica / 7.1 - Negro
                         </p>
                         <div class="product-price">$100.000</div>
@@ -237,14 +255,14 @@
                     </div>
                     <div class="card-content">
                         <h3 class="product-title">GPU Nvidia</h3>
-                        <p class="produc-description">
+                        <p class="product-description">
                             Grafica Nvidia GForce RTX 2080
                         </p>
                         <div class="product-price">$1.200.000</div>
                         <button class="btn-detalle">Ver Detalles</button>
                     </div>
                 </article>
-    
+
             </div>
         </main>
     </div>
