@@ -20,6 +20,14 @@
             /* Color principal del texto */
         }
 
+        body.dark-mode {
+            --color-principal: #1e88e5;
+            --color-acento: #66bb6a;
+            --color-fondo: #121212;
+            --color-tarjeta: #1f1f1f;
+            --color-texto: #f5f5f5;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -30,6 +38,12 @@
             padding: 0;
             margin: 0;
             line-height: 1.6;
+            color: var(--color-texto);
+            transition: brackground-color 0.4s ease, color 0.4s ease;
+        }
+
+        body.dark-mode {
+            background-color: var(--color-fondo);
             color: var(--color-texto);
         }
 
@@ -95,10 +109,15 @@
 
         .product-description {
             font-size: 0.85em;
-            color: #555;
+            color: var(--color-texto);
             margin: 5px 0 10px;
             height: 50px;
             overflow: hidden;
+            transition: brackground-color 0.4s ease, color 0.4s ease;
+        }
+
+        body.dark-mode .product-description {
+            color: var(--color-texto);
         }
 
         .product-price {
@@ -158,6 +177,26 @@
             transform: scale(1.05);
         }
 
+        .modo-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 8px 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .modo-btn:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        
+
     </style>
 
 </head>
@@ -166,6 +205,37 @@
     <header>
         <h1>Tienda Informatica</h1>
     </header>
+
+    <button class="modo-btn" onclick="toggleModo()">🌙</button>
+
+    <script>
+        function toggleModo() {
+            const body = document.body;
+            const boton = document.querySelector(".modo-btn");
+            body.classList.toggle("dark-mode");
+            boton.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+            localStorage.setItem("modo", body.classList.contains("dark-mode"));
+        }
+
+        window.onload = function () {
+            const preferencia= localStorage.getItem("modoOscuro");
+            const hora=new Date().getHours();
+
+            if(preferencia !==null){
+                if(preferencia==="true"){
+                    document.body.classList.add("dark-mode");
+                    document.querySelector(".modo-btn").textContent="☀️";
+                }
+            }else{
+                if(hora>=18 || hora<6){
+                    document.body.classList.add("dark-mode");
+                    document.querySelector(".modo-btn").textContent="☀️";
+                }
+            }
+
+        };
+       
+    </script>
 
     <div class="contenedor-principal">
         <main>
