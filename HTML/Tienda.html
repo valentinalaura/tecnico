@@ -21,7 +21,7 @@
         }
 
         body.dark-mode {
-            --color-principal: #1e88e5;
+            --color-principal: #13436d;
             --color-acento: #66bb6a;
             --color-fondo: #121212;
             --color-tarjeta: #1f1f1f;
@@ -39,7 +39,7 @@
             margin: 0;
             line-height: 1.6;
             color: var(--color-texto);
-            transition: brackground-color 0.4s ease, color 0.4s ease;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         body.dark-mode {
@@ -113,7 +113,7 @@
             margin: 5px 0 10px;
             height: 50px;
             overflow: hidden;
-            transition: brackground-color 0.4s ease, color 0.4s ease;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         body.dark-mode .product-description {
@@ -218,7 +218,7 @@
         }
 
         window.onload = function () {
-            const preferencia= localStorage.getItem("modoOscuro");
+            const preferencia= localStorage.getItem("modo");
             const hora=new Date().getHours();
 
             if(preferencia !==null){
