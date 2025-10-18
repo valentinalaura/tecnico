@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: rgb(106, 110, 124);
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    background-color: azure;
+    border-radius: 11px;
+    box-shadow: 0 15px 30px rgba(0.0.0.0.15);
+    padding: 40px;
+    text-align: center;
+    border-top: 5px solid #4e597e;
+}
+
+.login-card h1 {
+    font-size: 2rem;
+    color: #3b4b7e;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+
+}
