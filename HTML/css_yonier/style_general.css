@@ -5,7 +5,7 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* grey-100 */
+            background-color:  #c6e9eef3; /* grey-100 */
             min-height: 100vh;
         }
 
@@ -41,7 +41,7 @@
             text-align: center;
             font-size: 2.25rem;
             font-weight: 700;
-            color: #374151; /* gray-700 */
+            color: #008cba; /* gray-700 */
             padding-bottom: 0.5rem;
             border-bottom: 4px solid #d1d5db; /* gray-300 */
             max-width: 800px;
@@ -86,6 +86,41 @@
             border-bottom-left-radius: 0.75rem;
             border-bottom-right-radius: 0.75rem;
         }
+
+        .btt_1{
+            background-color: #2563eb; /* bg-blue-600 */
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.15s;
+            margin: 0.5rem;
+        }
+        .btt_1:hover {
+            background-color: #1d4ed8; /* bg-blue-700 */
+        }
+        .btt_1:active {
+            transform: scale(0.95);
+        }
+        .btt_2{
+            background-color: #10b981; /* bg-emerald-500 */
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.15s;
+            margin: 0.5rem;
+        }
+        .btt_2:hover {
+            background-color: #0e9f6e; /* bg-emerald-700 */
+        }
+        .btt_2:active {
+            transform: scale(0.95);
+        } 
 
         /* --- 2. PORTAFOLIO DE PROYECTOS --- */
         .portfolio-grid {
